@@ -1,0 +1,13 @@
+
+public class Main {
+
+    public static void main(String[] args){
+        Board.InitialBoard();
+        System.out.println("====================");
+        Board.PlacementShip4();
+        Board.PlacementShip3();
+        Board.PlacementShip2();
+        Board.PlacementShip1();
+        Mechanic.Shoot();
+    }
+}
