@@ -43,7 +43,6 @@ public class Mechanic {
                     System.out.println();
                 }
             }
-            /*Dla statków o długości 2 ten sposób jest spoko bo sa tylko 2 możliwości zatopienia, git gut*/
             if (Board.board1[trafienieX - 1][trafienieY - 1] == 2) {
                 if (trafienieX - 2 >= 0 && trafienieX < 10) {
                     if (((Board.board1[trafienieX - 2][trafienieY - 1] == 2) && ((Board.board2[trafienieX - 2][trafienieY - 1]) == 'X')) || ((Board.board1[trafienieX][trafienieY - 1] == 2) && ((Board.board2[trafienieX][trafienieY - 1]) == 'X'))) {
@@ -60,7 +59,7 @@ public class Mechanic {
                         }
                     }
                 }
-                /*dla trójek 3 sposoby rozpisane, działa ale szukam czegoś krótszego*/
+            
             }
             else if (Board.board1[trafienieX - 1][trafienieY - 1] == 3) {
                 if (((trafienieX - 3) >= 0) && ((trafienieX - 2) >= 0) && (trafienieX < 10) && ((trafienieX + 1) < 10)) {
@@ -79,7 +78,6 @@ public class Mechanic {
                     }
 
                 }
-                /*Statki o długości 4 mają 4 opcje trafienia i zatopienia, wchuj dużo warunków, niżej są tylko 2 przypadki(kiedy trafimy końcowe współrzedne statku), szukam nowego sposobu*/
             }
             else if (Board.board1[trafienieX - 1][trafienieY - 1] == 4) {
                 if (((((trafienieX - 4) >= 0) && ((trafienieX - 3) >= 0) && ((trafienieX - 2) >= 0) && (trafienieX < 10) && ((trafienieX + 1) < 10) && ((trafienieX + 2) < 10)))) {
