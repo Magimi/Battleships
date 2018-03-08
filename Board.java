@@ -21,47 +21,62 @@ public class Board {
 
     public static void PlacementShip4() {
 
-        int x = Randomize.rint(0, 9);                                                                                   /*Umieszczenie największego statku jako pierwszego*/
-        int y = Randomize.rint(0, 9);
 
-        if (x - 1 >= 0 && x - 2 >= 0 && x - 3 >= 0) {
-            board1[x][y] = 4;
-            board1[x - 1][y] = 4;
-            board1[x - 2][y] = 4;
-            board1[x - 3][y] = 4;
+        while (Ships.quantityShip4 > 0) {
+            int x = Randomize.rint(0, 9);
+            int y = Randomize.rint(0, 9);
+            if ((((y - 3) >= 0) && ((y - 2) >= 0) && ((y - 1) >= 0) && ((y + 3) < 10) && ((y + 2) < 10) && ((y + 1) < 10) )&& (((board1[x][y - 3] == 0) &&
+                    (board1[x][y - 2] == 0) && (board1[x][y - 1] == 0)) || ((board1[x][y + 1] == 0) && (board1[x][y + 2] == 0) && (board1[x][y + 3] == 0)))) {
+                if ((board1[x][y - 3] == 0) && (board1[x][y - 2] == 0) && (board1[x][y - 2] == 0) && (board1[x][y] == 0)) {
 
-        } else if (x + 1 < 10 && x + 2 < 10 && x + 3 < 10) {
-            board1[x][y] = 4;
-            board1[x + 1][y] = 4;
-            board1[x + 2][y] = 4;
-            board1[x + 3][y] = 4;
-            board1[x + 4][y] = 4;
-        } else if (y - 1 >= 0 && y - 2 >= 0 && x - 3 >= 0) {
-            board1[x][y] = 4;
-            board1[x][y - 1] = 4;
-            board1[x][y - 2] = 4;
-            board1[x][y - 3] = 4;
+                    board1[x][y] = 4;
+                    board1[x][y - 1] = 4;
+                    board1[x][y - 2] = 4;
+                    board1[x][y - 3] = 4;
+                    --Ships.quantityShip4;
+                } else if ((board1[x][y] == 0) && (board1[x][y + 1] == 0) && (board1[x][y + 2] == 0) && (board1[x][y + 3] == 0)) {
+                    board1[x][y] = 4;
+                    board1[x][y + 1] = 4;
+                    board1[x][y + 2] = 4;
+                    board1[x][y + 3] = 4;
+                    --Ships.quantityShip4;
+                }
+            } else if ((((x - 3) >= 0) && ((x - 2) >= 0) && ((x - 1) >= 0) && ((x + 3) < 10) && ((x + 2) < 10) && ((x + 1) < 10))&&(((board1[x-3][y]==0)&&
+                    (board1[x-2][y]==0)&&(board1[x-1][y]==0))||((board1[x+1][y]==0)&&(board1[x+2][y]==0)&&(board1[x+3][y]==0)))) {
+                if ((board1[x + 3][y] == 0) && (board1[x + 2][y] == 0) && (board1[x + 1][y] == 0) && (board1[x][y] == 0)) {
 
-        } else {
-            board1[x][y] = 4;
-            board1[x][y + 1] = 4;
-            board1[x][y + 2] = 4;
-            board1[x][y + 3] = 4;
+                    board1[x][y] = 4;
+                    board1[x + 1][y] = 4;
+                    board1[x + 2][y] = 4;
+                    board1[x + 3][y] = 4;
+                    board1[x + 4][y] = 4;
+                    --Ships.quantityShip4;
+                } else if ((board1[x - 3][y] == 0) && (board1[x - 2][y] == 0) && (board1[x - 1][y] == 0) && (board1[x][y] == 0)) {
+
+                    board1[x][y] = 4;
+                    board1[x - 1][y] = 4;
+                    board1[x - 2][y] = 4;
+                    board1[x - 3][y] = 4;
+                    --Ships.quantityShip4;
+                }
+            }
         }
     }
+
 
     public static void PlacementShip3() {
 
         /*Umieszczenie wszystkich statków o wielkości 3*/
         while (Ships.quantityShip3 > 0) {
-            int x = Randomize.rint(1, 9);
-            int y = Randomize.rint(1, 9);
+            int x = Randomize.rint(0, 9);
+            int y = Randomize.rint(0, 9);
 
             /*Warunek czy wylosowana komórka będzie miała wystarczającą ilośc miejsca w kolumnie na umieszczenie statuku o długosci 3*/
-            if (((((y - 2) >= 0) && ((y - 1) >= 0)&&((y - 3)>=0)) && (((y + 1) < 10) && ((y + 2) < 10)&& ((y + 3 )<10))) && (((board1[x][y - 1] == 0) && (board1[x][y - 2] == 0)) || ((board1[x][y + 1] == 0) && (board1[x][y - 1] == 0))))
+            if (((((y - 2) >= 0) && ((y - 1) >= 0)&&((y - 3)>=0)) && (((y + 1) < 10) && ((y + 2) < 10)&& ((y + 3 )<10))) && (((board1[x][y - 1] == 0) &&
+                    (board1[x][y - 2] == 0)) || ((board1[x][y + 1] == 0) && (board1[x][y - 1] == 0))))
             {
                 /*Sprawdzenie czy pola nie są już zajęte*/
-                if ((board1[x][y - 2] == 0) && (board1[x][y - 2] == 0) && (board1[x][y] == 0) && ((y - 1) >= 0)) {
+                if ((board1[x][y - 2] == 0) && (board1[x][y - 1] == 0) && (board1[x][y] == 0) && ((y - 1) >= 0)) {
                     board1[x][y] = 3;
                     board1[x][y - 1] = 3;
                     board1[x][y - 2] = 3;
@@ -130,14 +145,14 @@ public class Board {
     public static void PlacementShip1() {
 
         while (Ships.quantityShip1 > 0) {
-            int x = Randomize.rint(1, 9);
-            int y = Randomize.rint(1, 9);
+            int x = Randomize.rint(0, 9);
+            int y = Randomize.rint(0, 9);
 
             if (board1[x][y] == 0) {
                 board1[x][y] = 1;
                 --Ships.quantityShip1;
                 /*Sprawdzenie czy pola nie są już zajęte*/
-            } else if ((((y - 1) >= 0) || ((y + 1) < 10)) && ((board1[x][y - 1] == 0) || (board1[x][y + 1] == 0))) {
+            } else if ((((y - 1) >= 0) && ((y + 1) < 10)) && ((board1[x][y - 1] == 0) || (board1[x][y + 1] == 0))) {
                 if (board1[x][y - 1] == 0 && ((y - 1) >= 0)) {
                     board1[x][y - 1] = 1;
                     --Ships.quantityShip1;
@@ -145,7 +160,7 @@ public class Board {
                     board1[x][y + 1] = 1;
                     --Ships.quantityShip1;
                 }
-            } else if ((((x - 1) >= 0) || ((x + 1) < 10)) && ((board1[x - 1][y] == 0) || (board1[x + 1][y] == 0))) {
+            } else if ((((x - 1) >= 0) && ((x + 1) < 10)) && ((board1[x - 1][y] == 0) || (board1[x + 1][y] == 0))) {
                 if ((board1[x - 1][y] == 0) && ((x - 1) >= 0))
                     board1[x - 1][y] = 1;
                 --Ships.quantityShip1;
@@ -164,8 +179,3 @@ public class Board {
 
     }
 }
-
-
-
-
-
