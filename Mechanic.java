@@ -60,7 +60,7 @@ public class Mechanic {
                         }
                     }
                 }
-            /*dla trójek 3 sposoby rozpisane, działa ale szukam czegoś krótszego*/
+                /*dla trójek 3 sposoby rozpisane, działa ale szukam czegoś krótszego*/
             }
             else if (Board.board1[trafienieX - 1][trafienieY - 1] == 3) {
                 if (((trafienieX - 3) >= 0) && ((trafienieX - 2) >= 0) && (trafienieX < 10) && ((trafienieX + 1) < 10)) {
@@ -72,11 +72,12 @@ public class Mechanic {
                     }
                 } else if ((((trafienieY - 2) >= 0) && ((trafienieY - 3) >= 0) && (trafienieY < 10) && ((trafienieY + 1) < 10))) {
                     if ((((Board.board1[trafienieX - 1][trafienieY - 3] == 3) && (Board.board2[trafienieX - 1][trafienieY - 3] == 'X')) && ((Board.board1[trafienieX - 1][trafienieY - 2] == 3) && (Board.board2[trafienieX - 1][trafienieY - 2] == 'X'))) || (((Board.board1[trafienieX - 1][trafienieY] == 3) && (Board.board2[trafienieX - 1][trafienieY] == 'X')) && ((Board.board1[trafienieX - 1][trafienieY + 1] == 3) && (Board.board2[trafienieX - 1][trafienieY + 1] == 'X')))||(((Board.board1[trafienieX-1][trafienieY-2]==3)&&(Board.board2[trafienieX-1][trafienieY-2]=='X'))&&(Board.board1[trafienieX-1][trafienieY]==3)&&(Board.board2[trafienieX-1][trafienieY]=='X'))) {
-                       if(Ships.lenghtShip3>0) {
-                           System.out.println("Trafiony,Zatopiony");
-                           --Ships.lenghtShip3;
-                       }
+                        if(Ships.lenghtShip3>0) {
+                            System.out.println("Trafiony,Zatopiony");
+                            --Ships.lenghtShip3;
+                        }
                     }
+
                 }
                 /*Statki o długości 4 mają 4 opcje trafienia i zatopienia, wchuj dużo warunków, niżej są tylko 2 przypadki(kiedy trafimy końcowe współrzedne statku), szukam nowego sposobu*/
             }
@@ -88,9 +89,38 @@ public class Mechanic {
                             --Ships.lenghtShip4;
                         }
                     }
+                    else if(((Board.board1[trafienieX - 2][trafienieY - 1] == 4) && (Board.board2[trafienieX - 2][trafienieY - 1] == 'X')) && ((Board.board1[trafienieX][trafienieY - 1] == 4) && (Board.board2[trafienieX][trafienieY - 1] == 'X')) && ((Board.board1[trafienieX + 1][trafienieY - 1] == 4) && (Board.board2[trafienieX + 1][trafienieY - 1] == 'X')))
+                    {
+                        if(Ships.lenghtShip4>0) {
+                            System.out.println("Trafiony,Zatopiony");
+                            --Ships.lenghtShip4;
+                        }
+                    }
+                    else if(((Board.board1[trafienieX - 3][trafienieY - 1] == 4) && (Board.board2[trafienieX - 3][trafienieY - 1] == 'X')) && ((Board.board1[trafienieX - 2][trafienieY - 1] == 4) && (Board.board2[trafienieX - 2][trafienieY - 1] == 'X')) && ((Board.board1[trafienieX][trafienieY - 1] == 4) && (Board.board2[trafienieX][trafienieY - 1] == 'X')))
+                    {
+                        if(Ships.lenghtShip4>0) {
+                            System.out.println("Trafiony,Zatopiony");
+                            --Ships.lenghtShip4;
+                        }
+                    }
                 } else if ((trafienieY - 4 >= 0) && ((trafienieY - 3) >= 0) && ((trafienieY - 2) >= 0) && (trafienieY < 10) && ((trafienieY + 1) < 10) && ((trafienieY + 2) < 10)) {
                     if ((((Board.board1[trafienieX - 1][trafienieY - 4] == 4) && (Board.board2[trafienieX - 1][trafienieY - 4] == 'X')) && ((Board.board1[trafienieX - 1][trafienieY - 3] == 4) && (Board.board2[trafienieX - 1][trafienieY - 3] == 'X')) && ((Board.board1[trafienieX - 1][trafienieY - 2] == 4) && (Board.board2[trafienieX - 1][trafienieY - 2] == 'X'))) || (((Board.board1[trafienieX - 1][trafienieY] == 4) && (Board.board2[trafienieX - 1][trafienieY] == 'X')) && ((Board.board1[trafienieX - 1][trafienieY + 1] == 4) && (Board.board2[trafienieX - 1][trafienieY + 1] == 'X')) && ((Board.board1[trafienieX = 1][trafienieY + 2] == 4) && (Board.board2[trafienieX - 1][trafienieY + 2] == 'X')))) {
                         if (Ships.lenghtShip4 > 0) {
+                            System.out.println("Trafiony,Zatopiony");
+                            --Ships.lenghtShip4;
+                        }
+                    }
+                    /* tylko to gówno nie działa*/
+                    else if(((Board.board1[trafienieX - 1][trafienieY - 2] == 4) && (Board.board2[trafienieX - 1][trafienieY - 2] == 'X')) && ((Board.board1[trafienieX - 1][trafienieY] == 4) && (Board.board2[trafienieX - 1][trafienieY] == 'X')) && ((Board.board1[trafienieX - 1][trafienieY + 1] == 4) && (Board.board2[trafienieX - 1][trafienieY + 1] == 'X')))
+                    {
+                        if(Ships.lenghtShip4>0) {
+                            System.out.println("Trafiony,Zatopiony");
+                            --Ships.lenghtShip4;
+                        }
+                    }
+                    else if(((Board.board1[trafienieX - 1][trafienieY - 3] == 4) && (Board.board2[trafienieX - 1][trafienieY - 3] == 'X')) && ((Board.board1[trafienieX - 1][trafienieY - 2] == 4) && (Board.board2[trafienieX - 1][trafienieY - 2] == 'X')) && ((Board.board1[trafienieX - 1][trafienieY] == 4) && (Board.board2[trafienieX - 1][trafienieY] == 'X')))
+                    {
+                        if(Ships.lenghtShip4>0) {
                             System.out.println("Trafiony,Zatopiony");
                             --Ships.lenghtShip4;
                         }
